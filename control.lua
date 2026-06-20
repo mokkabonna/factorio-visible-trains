@@ -19,11 +19,10 @@ script.on_event(defines.events.on_tick,
                         sprite = "item/" .. contents[1].name
                     end
                 elseif carriage.type == "fluid-wagon" then
-                    local fluidbox = carriage.fluidbox
-                    for fi = 1, #fluidbox do
-                        local fluid = fluidbox[fi]
-                        if fluid then
-                            sprite = "fluid/" .. fluid.name
+                    local fluid_contents = carriage.get_fluid_contents()
+                    for fluid_name, amount in pairs(fluid_contents) do
+                        if amount > 0 then
+                            sprite = "fluid/" .. fluid_name
                             break
                         end
                     end

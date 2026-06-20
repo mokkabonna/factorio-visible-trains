@@ -2,6 +2,7 @@ on:
   push:
     tags:
       - '*'
+  workflow_dispatch:
 name: Publish to the Factorio mod portal
 jobs:
   publish:

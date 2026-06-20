@@ -6,6 +6,8 @@ script.on_event(defines.events.on_tick,
   function(event)
     local train_manager = game.train_manager
     local player = game.players[1]
+    local zoom_scale = settings.global["visible-trains-icon-scale"].value / player.zoom
+    
     for _, train in ipairs(train_manager.get_trains({})) do
         for i = 1, #train.carriages do
             local carriage = train.carriages[i]
@@ -31,8 +33,8 @@ script.on_event(defines.events.on_tick,
 
             rendering.draw_sprite({
                 sprite = sprite,
-                x_scale = 1 / player.zoom,
-                y_scale = 1 / player.zoom,
+                x_scale = zoom_scale,
+                y_scale = zoom_scale,
                 time_to_live = 1,
                 target = carriage,
                 surface = 1, -- TODO

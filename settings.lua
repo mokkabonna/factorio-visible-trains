@@ -6,4 +6,13 @@ data:extend({
         default_value = true,
         order = "a",
     },
+    {
+        type = "double-setting",
+        name = "visible-trains-icon-scale",
+        setting_type = "runtime-global",
+        default_value = 1,
+        minimum_value = 0.1,
+        maximum_value = 10,
+        order = "b",
+    },
 })

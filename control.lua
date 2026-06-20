@@ -11,19 +11,21 @@ script.on_event(defines.events.on_tick,
             local carriage = train.carriages[i]
             local sprite = "entity/" .. carriage.prototype.name
 
-            if carriage.type == "cargo-wagon" then
-                local inventory = carriage.get_inventory(defines.inventory.cargo_wagon)
-                local contents = inventory.get_contents()
-                if #contents > 0 then
-                    sprite = "item/" .. contents[1].name
-                end
-            elseif carriage.type == "fluid-wagon" then
-                local fluidbox = carriage.fluidbox
-                for fi = 1, #fluidbox do
-                    local fluid = fluidbox[fi]
-                    if fluid then
-                        sprite = "fluid/" .. fluid.name
-                        break
+            if settings.global["visible-trains-wagon-content-icon"].value then
+                if carriage.type == "cargo-wagon" then
+                    local inventory = carriage.get_inventory(defines.inventory.cargo_wagon)
+                    local contents = inventory.get_contents()
+                    if #contents > 0 then
+                        sprite = "item/" .. contents[1].name
+                    end
+                elseif carriage.type == "fluid-wagon" then
+                    local fluidbox = carriage.fluidbox
+                    for fi = 1, #fluidbox do
+                        local fluid = fluidbox[fi]
+                        if fluid then
+                            sprite = "fluid/" .. fluid.name
+                            break
+                        end
                     end
                 end
             end
@@ -38,7 +40,6 @@ script.on_event(defines.events.on_tick,
                 render_mode = "chart",
             })
         end
-
     end
   end
 )

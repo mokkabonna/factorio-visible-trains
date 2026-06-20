@@ -7,7 +7,7 @@ script.on_event(defines.events.on_tick,
     local train_manager = game.train_manager
     local player = game.players[1]
     for _, train in ipairs(train_manager.get_trains({})) do
-        for i = #train.carriages, 1, -1 do
+        for i = 1, #train.carriages do
             local carriage = train.carriages[i]
             local sprite = "entity/" .. carriage.prototype.name
 

@@ -19,7 +19,7 @@ data:extend({
         type = "bool-setting",
         name = "visible-trains-draw-rails",
         setting_type = "runtime-global",
-        default_value = true,
+        default_value = false,
         order = "c",
     },
 })

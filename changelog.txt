@@ -1,0 +1,5 @@
+---------------------------------------------------------------------------------------------------
+Version: 0.3.3
+Date: 31. 07. 2026
+  Changes:
+    - Make trains rendered on higher render_layer (above electic network) - layers 215 & 216

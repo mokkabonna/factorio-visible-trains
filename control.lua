@@ -132,7 +132,7 @@ function draw_all_trains()
         for i = 1, #train.carriages do
             local carriage = train.carriages[i]
             local sprite = "entity/" .. carriage.prototype.name
-            local layer = "arrow"
+            local layer = 216
 
             if settings.global["visible-trains-wagon-content-icon"].value then
                 if carriage.type == "cargo-wagon" then
@@ -150,7 +150,7 @@ function draw_all_trains()
                         end
                     end
                 else
-                    layer = "collision-selection-box"
+                    layer = 215
                 end
             end
 
